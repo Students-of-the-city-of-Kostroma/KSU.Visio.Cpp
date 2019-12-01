@@ -1,6 +1,7 @@
-QT       += core gui
+#QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+requires(qtConfig(fontcombobox))
 
 CONFIG += c++11
 
@@ -22,8 +23,10 @@ SOURCES += \
 HEADERS += \
     mainwindow.h
 
-FORMS += \
-    mainwindow.ui
+RESOURCES = diagramstatecreator.qrc
+
+#FORMS += \
+#    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

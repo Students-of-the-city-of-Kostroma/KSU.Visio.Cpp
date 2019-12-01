@@ -1,15 +1,18 @@
+/****************************************************************************
+**
+** Copyright (C) 2016 The Qt Company Ltd.
+** Contact: https://www.qt.io/licensing/
+**
+** This file is part of the project Diagram State Creator
+**
+****************************************************************************/
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+#include <QtWidgets>
+
+MainWindow::MainWindow()
 {
-    ui->setupUi(this);
+    setWindowTitle(tr("Diagram State Creator"));
+    setWindowIcon(QIcon(":/images/logo.png"));
+    setUnifiedTitleAndToolBarOnMac(true);
 }
-
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
