@@ -22,9 +22,24 @@ class MainWindow : public QMainWindow
 public:
     MainWindow();
 
+
 private slots:
 
 private:
+void CreateMenu();
+QMenu *fileMenu;
+QMenu *edit;
+QMenu *about;
+QMenu *settings;
+
+QAction *saveAction;
+QAction *openAction;
+QAction *createAction;
+QAction *cancelAction;
+QAction *revertCancelAction;
+QAction *aboutAction;
+QAction *settingsAction;
+
 
 };
 #endif // MAINWINDOW_H
