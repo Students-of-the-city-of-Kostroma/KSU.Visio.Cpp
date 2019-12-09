@@ -37,6 +37,7 @@ private slots:
 private:
     void createMenu();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     void createActions();
 
     QMenu *fileMenu;
@@ -44,17 +45,23 @@ private:
     QMenu *about;
     QMenu *settings;
 =======
+=======
+>>>>>>> Stashed changes
     QWidget *createElement(QString &, Element::type);
 
     QMenu *fileMenu;
     QMenu *editMenu;
     QMenu *aboutMenu;
     QMenu *settingsMenu;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
     QAction *saveAction;
     QAction *openAction;
     QAction *createAction;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     QAction *exitAction;
     QAction *deleteAction;
@@ -63,12 +70,17 @@ private:
     QAction *aboutAction;
     QAction *settingsAction;
 =======
+=======
+>>>>>>> Stashed changes
     QAction *cancelAction;
     QAction *revertCancelAction;
     QAction *aboutAction;
     QAction *settingsAction;
 
     QButtonGroup *buttonGroup;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 };
 #endif // MAINWINDOW_H
