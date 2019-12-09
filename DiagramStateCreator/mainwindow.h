@@ -21,8 +21,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow();
-
+	MainWindow();
 
 private slots:
     void createDocument();
@@ -36,63 +35,24 @@ private slots:
 
 private:
     void createMenu();
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     void createActions();
+	QWidget* createElement(QString&, Element::type);
 
     QMenu *fileMenu;
-    QMenu *edit;
-    QMenu *about;
-    QMenu *settings;
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-    QWidget *createElement(QString &, Element::type);
-
-    QMenu *fileMenu;
-    QMenu *editMenu;
-    QMenu *aboutMenu;
-    QMenu *settingsMenu;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+	QMenu *editMenu;
+	QMenu *aboutMenu;
+	QMenu *settingsMenu;
 
     QAction *saveAction;
     QAction *openAction;
     QAction *createAction;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     QAction *exitAction;
     QAction *deleteAction;
     QAction *undoAction;
     QAction *cancelUndoAction;
+	QAction *settingsAction;
     QAction *aboutAction;
-    QAction *settingsAction;
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-    QAction *cancelAction;
-    QAction *revertCancelAction;
-    QAction *aboutAction;
-    QAction *settingsAction;
 
     QButtonGroup *buttonGroup;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 };
 #endif // MAINWINDOW_H

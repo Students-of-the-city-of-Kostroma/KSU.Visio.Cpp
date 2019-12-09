@@ -13,13 +13,7 @@
 
 MainWindow::MainWindow()
 {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     createActions();
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     createMenu();
 
     setWindowTitle(tr("Diagram State Creator"));
@@ -27,9 +21,6 @@ MainWindow::MainWindow()
     setUnifiedTitleAndToolBarOnMac(true);    
 }
 
-<<<<<<< Updated upstream
-
-=======
 /**
  * Создание Главого меню
  * Добавляем пункты:
@@ -38,10 +29,6 @@ MainWindow::MainWindow()
  *  - О приложении
  *  - Настройки
  */
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 void MainWindow::createMenu()
 {
    fileMenu = menuBar()->addMenu(tr("&File"));
@@ -51,18 +38,16 @@ void MainWindow::createMenu()
    fileMenu ->addSeparator();
    fileMenu ->addAction(exitAction);
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-   edit = menuBar()->addMenu(tr("&Edit"));
-   edit->addAction(deleteAction);
-   edit->addAction(undoAction);
-   edit->addAction(cancelUndoAction);
+   editMenu = menuBar()->addMenu(tr("&Edit"));
+   editMenu->addAction(deleteAction);
+   editMenu->addAction(undoAction);
+   editMenu->addAction(cancelUndoAction);
 
-   settings = menuBar()->addMenu(tr("&Settings"));
-   settings->addAction(settingsAction);
+   settingsMenu = menuBar()->addMenu(tr("&Settings"));
+   settingsMenu->addAction(settingsAction);
 
-   about = menuBar()->addMenu(tr("&About"));
-   about->addAction(aboutAction);
+   aboutMenu = menuBar()->addMenu(tr("&About"));
+   aboutMenu->addAction(aboutAction);
 }
 
 /**
@@ -125,16 +110,6 @@ void MainWindow::createActions()
 void MainWindow::showAbout()
 {
     QMessageBox::about(this, tr("About Diagram App"), tr("Something..."));
-=======
-   editMenu = menuBar()->addMenu(tr("&Edit"));
-   editMenu->addAction(cancelAction);
-   editMenu->addAction(revertCancelAction);
-
-   aboutMenu = menuBar()->addMenu(tr("&About"));
-   aboutMenu->addAction(aboutAction);
-
-   settingsMenu = menuBar()->addMenu(tr("&Settings"));
-   settingsMenu->addAction(settingsAction);
 }
 
 QWidget *MainWindow::createElement(QString &text, Element::type type)
@@ -156,39 +131,4 @@ QWidget *MainWindow::createElement(QString &text, Element::type type)
     widget->setLayout(layout);
 
     return widget;
-
->>>>>>> Stashed changes
-=======
-   editMenu = menuBar()->addMenu(tr("&Edit"));
-   editMenu->addAction(cancelAction);
-   editMenu->addAction(revertCancelAction);
-
-   aboutMenu = menuBar()->addMenu(tr("&About"));
-   aboutMenu->addAction(aboutAction);
-
-   settingsMenu = menuBar()->addMenu(tr("&Settings"));
-   settingsMenu->addAction(settingsAction);
-}
-
-QWidget *MainWindow::createElement(QString &text, Element::type type)
-{
-    Element item(type);
-//    QIcon icon(item.image());
-
-    QToolButton *button = new QToolButton;
-//    button->setIcon(icon);
-    button->setIconSize(QSize(50, 50));
-    button->setCheckable(true);
-    buttonGroup->addButton(button, int(type));
-
-    QGridLayout *layout = new QGridLayout;
-    layout->addWidget(button, 0, 0, Qt::AlignHCenter);
-    layout->addWidget(new QLabel(text), 1, 0, Qt::AlignCenter);
-
-    QWidget *widget = new QWidget;
-    widget->setLayout(layout);
-
-    return widget;
-
->>>>>>> Stashed changes
 }
