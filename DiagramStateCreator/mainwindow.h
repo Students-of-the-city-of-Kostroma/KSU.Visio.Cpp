@@ -38,6 +38,7 @@ private:
     void createMenu();
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     void createActions();
 
     QMenu *fileMenu;
@@ -47,6 +48,8 @@ private:
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     QWidget *createElement(QString &, Element::type);
 
     QMenu *fileMenu;
@@ -54,6 +57,9 @@ private:
     QMenu *aboutMenu;
     QMenu *settingsMenu;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -61,6 +67,7 @@ private:
     QAction *saveAction;
     QAction *openAction;
     QAction *createAction;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     QAction *exitAction;
@@ -72,6 +79,8 @@ private:
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     QAction *cancelAction;
     QAction *revertCancelAction;
     QAction *aboutAction;
@@ -79,6 +88,9 @@ private:
 
     QButtonGroup *buttonGroup;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
