@@ -1,5 +1,13 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource>
-    <file>images/logo.png</file>
-</qresource>
+<RCC version="1.0">
+    <qresource prefix="/">
+        <file>images/logo.png</file>
+        <file>images/createDocument.png</file>
+        <file>images/delete.png</file>
+        <file>images/exit.png</file>
+        <file>images/revertUndo.png</file>
+        <file>images/undo.png</file>
+        <file>images/settings.png</file>
+        <file>images/saveDocument.png</file>
+        <file>images/openDocument.png</file>
+    </qresource>
 </RCC>
