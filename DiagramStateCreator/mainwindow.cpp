@@ -14,14 +14,15 @@
 
 MainWindow::MainWindow()
 {
+
     createActions();
+
     createMenu();
 
     setWindowTitle(tr("Diagram State Creator"));
     setWindowIcon(QIcon(":/images/logo.png"));
     setUnifiedTitleAndToolBarOnMac(true);    
 }
-
 
 void MainWindow::createMenu()
 {
@@ -31,6 +32,7 @@ void MainWindow::createMenu()
    fileMenu ->addAction(saveAction);
    fileMenu ->addSeparator();
    fileMenu ->addAction(exitAction);
+
 
    edit = menuBar()->addMenu(tr("&Edit"));
    edit->addAction(deleteAction);

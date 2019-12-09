@@ -22,7 +22,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow();
 
-
 private slots:
     void createDocument();
     void openDocument();
@@ -35,6 +34,11 @@ private slots:
 
 private:
     void createMenu();
+
+    QMenu *fileMenu;
+    QMenu *editMenu;
+    QMenu *aboutMenu;
+    QMenu *settingsMenu;
     void createActions();
 
     QMenu *fileMenu;
@@ -45,6 +49,8 @@ private:
     QAction *saveAction;
     QAction *openAction;
     QAction *createAction;
+    QAction *cancelAction;
+    QAction *revertCancelAction;
     QAction *exitAction;
     QAction *deleteAction;
     QAction *undoAction;
