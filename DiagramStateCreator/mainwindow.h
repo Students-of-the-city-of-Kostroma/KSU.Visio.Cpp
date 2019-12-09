@@ -10,6 +10,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "element.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -34,28 +35,24 @@ private slots:
 
 private:
     void createMenu();
-
-    QMenu *fileMenu;
-    QMenu *editMenu;
-    QMenu *aboutMenu;
-    QMenu *settingsMenu;
     void createActions();
+	QWidget* createElement(QString&, Element::type);
 
     QMenu *fileMenu;
-    QMenu *edit;
-    QMenu *about;
-    QMenu *settings;
+	QMenu *editMenu;
+	QMenu *aboutMenu;
+	QMenu *settingsMenu;
 
     QAction *saveAction;
     QAction *openAction;
     QAction *createAction;
-    QAction *cancelAction;
-    QAction *revertCancelAction;
     QAction *exitAction;
     QAction *deleteAction;
     QAction *undoAction;
     QAction *cancelUndoAction;
+	QAction *settingsAction;
     QAction *aboutAction;
-    QAction *settingsAction;
+
+    QButtonGroup *buttonGroup;
 };
 #endif // MAINWINDOW_H
