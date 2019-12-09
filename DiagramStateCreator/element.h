@@ -9,13 +9,14 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
 
+#include <QtWidgets>
 
 class Element : public QGraphicsPolygonItem
 {
 public:
     enum type {};
 
-    Element();
+    Element(type, QGraphicsItem *parent = nullptr);
 };
 
 #endif // ELEMENT_H

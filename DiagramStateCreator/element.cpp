@@ -8,7 +8,8 @@
 ****************************************************************************/
 #include "element.h"
 
-Element::Element()
+Element::Element(type type, QGraphicsItem *parent)
+    : QGraphicsPolygonItem(parent)
 {
-
+    // TODO Реализовать создание элемента
 }
