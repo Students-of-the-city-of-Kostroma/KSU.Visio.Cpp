@@ -14,11 +14,13 @@
 
 MainWindow::MainWindow()
 {
+    createMenu();
+
     setWindowTitle(tr("Diagram State Creator"));
     setWindowIcon(QIcon(":/images/logo.png"));
     setUnifiedTitleAndToolBarOnMac(true);    
 }
-void MainWindow::CreateMenu()
+void MainWindow::createMenu()
 {
    fileMenu = menuBar()->addMenu(tr("&File"));
    fileMenu ->addAction(createAction);
