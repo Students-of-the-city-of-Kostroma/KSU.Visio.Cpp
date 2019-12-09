@@ -18,6 +18,15 @@ MainWindow::MainWindow()
     setWindowIcon(QIcon(":/images/logo.png"));
     setUnifiedTitleAndToolBarOnMac(true);    
 }
+
+/**
+ * Создание Главого меню
+ * Добавляем пункты:
+ *  - Файл
+ *  - Правка
+ *  - О приложении
+ *  - Настройки
+ */
 void MainWindow::CreateMenu()
 {
    fileMenu = menuBar()->addMenu(tr("&File"));
