@@ -29,6 +29,7 @@ void MainWindow::createMenu()
    fileMenu ->addAction(createAction);
    fileMenu ->addAction(openAction);
    fileMenu ->addAction(saveAction);
+   fileMenu ->addSeparator();
    fileMenu ->addAction(exitAction);
 
    edit = menuBar()->addMenu(tr("&Edit"));
