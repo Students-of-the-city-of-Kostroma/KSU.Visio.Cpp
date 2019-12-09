@@ -24,32 +24,22 @@ public:
 
 
 private slots:
-    void createDocument();
-    void openDocument();
-    void saveDocument();
-    void deleteElement();
-    void undo();
-    void cancelUndo();
-    void displaySettings();
-    void showAbout();
 
 private:
-    void createMenu();
-    void createActions();
+void CreateMenu();
+QMenu *fileMenu;
+QMenu *edit;
+QMenu *about;
+QMenu *settings;
 
-    QMenu *fileMenu;
-    QMenu *edit;
-    QMenu *about;
-    QMenu *settings;
+QAction *saveAction;
+QAction *openAction;
+QAction *createAction;
+QAction *cancelAction;
+QAction *revertCancelAction;
+QAction *aboutAction;
+QAction *settingsAction;
 
-    QAction *saveAction;
-    QAction *openAction;
-    QAction *createAction;
-    QAction *exitAction;
-    QAction *deleteAction;
-    QAction *undoAction;
-    QAction *cancelUndoAction;
-    QAction *aboutAction;
-    QAction *settingsAction;
+
 };
 #endif // MAINWINDOW_H
