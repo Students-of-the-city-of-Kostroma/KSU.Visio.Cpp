@@ -107,11 +107,21 @@ void MainWindow::createActions()
     connect(aboutAction, &QAction::triggered, this, &MainWindow::showAbout);
 }
 
+/**
+ * Выводим сообщение о программе
+ */
 void MainWindow::showAbout()
 {
     QMessageBox::about(this, tr("About Diagram App"), tr("Something..."));
 }
 
+/**
+ * Создание элемента диаграммы
+ *
+ * @param text
+ * @param type
+ * @return
+ */
 QWidget *MainWindow::createElement(QString &text, Element::type type)
 {
     Element item(type);
