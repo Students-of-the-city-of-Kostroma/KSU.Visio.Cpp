@@ -13,6 +13,8 @@
 class Element : public QGraphicsPolygonItem
 {
 public:
+    enum type {};
+
     Element();
 };
 
