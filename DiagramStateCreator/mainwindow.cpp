@@ -27,13 +27,13 @@ void MainWindow::createMenu()
    fileMenu ->addAction(openAction);
    fileMenu ->addAction(saveAction);
 
-   edit = menuBar()->addMenu(tr("&Edit"));
-   edit->addAction(cancelAction);
-   edit->addAction(revertCancelAction);
+   editMenu = menuBar()->addMenu(tr("&Edit"));
+   editMenu->addAction(cancelAction);
+   editMenu->addAction(revertCancelAction);
 
-   about = menuBar()->addMenu(tr("&About"));
-   about->addAction(aboutAction);
+   aboutMenu = menuBar()->addMenu(tr("&About"));
+   aboutMenu->addAction(aboutAction);
 
-   settings = menuBar()->addMenu(tr("&Settings"));
-   settings->addAction(settingsAction);
+   settingsMenu = menuBar()->addMenu(tr("&Settings"));
+   settingsMenu->addAction(settingsAction);
 }

@@ -27,9 +27,9 @@ private slots:
 private:
     void createMenu();
     QMenu *fileMenu;
-    QMenu *edit;
-    QMenu *about;
-    QMenu *settings;
+    QMenu *editMenu;
+    QMenu *aboutMenu;
+    QMenu *settingsMenu;
 
     QAction *saveAction;
     QAction *openAction;
