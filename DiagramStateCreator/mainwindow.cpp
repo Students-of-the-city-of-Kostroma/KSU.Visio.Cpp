@@ -9,8 +9,6 @@
 #include "mainwindow.h"
 
 #include <QtWidgets>
-#include <QMenuBar>
-#include <QAction>
 
 MainWindow::MainWindow()
 {

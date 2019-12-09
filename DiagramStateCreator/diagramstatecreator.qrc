@@ -1,4 +1,4 @@
-<RCC>
+<RCC version="1.0">
     <qresource prefix="/">
         <file>images/logo.png</file>
         <file>images/createDocument.png</file>
