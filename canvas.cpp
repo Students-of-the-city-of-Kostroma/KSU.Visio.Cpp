@@ -1,3 +1,17 @@
+#include "canvas.h"
+
+// Qt includes
+
+#include <QDebug>
+#include <QMessageBox>
+
+// Local includes
+
+#include "pin.h"
+#include "logicsim_global.h"
+
+namespace Logicsim
+{
 
 class Canvas::Private
 {
@@ -65,8 +79,63 @@ void Canvas::setManager(CanvasManager *manager)
     }
 }
 
-} // namespace Logicsim
+void Canvas::dropEvent(QGraphicsSceneDragDropEvent * event)
+{
+    if(event->mimeData()->property("acceptable").toBool())
+    {
+        int typeId = event->mimeData()->property("typeId").toInt();
+        event->acceptProposedAction();
 
+        Component* component = static_cast<Component*>(QMetaType::create(typeId));
+        d->mCanvasManager->addComponent(component, event->scenePos());
+    }
+    else
+    {
+        event->setAccepted(false);
+    }
+}
+void Canvas::dragEnterEvent(QGraphicsSceneDragDropEvent * event)
+{
+
+    if(event->mimeData()->property("acceptable").toBool())
+    {
+        event->acceptProposedAction();
+    }
+    else
+    {
+        event->setAccepted(false);
+    }
+}
+void Canvas::dragMoveEvent(QGraphicsSceneDragDropEvent * event)
+{
+    if(event->mimeData()->property("acceptable").toBool())
+    {
+        if(d->mCanvasManager->isDropable(event->scenePos()))
+        {
+            event->acceptProposedAction();
+        }
+        else
+        {
+            event->setAccepted(false);
+        }
+    }
+    else
+    {
+        event->setAccepted(false);
+    }
+}
+
+void Canvas::dragLeaveEvent(QGraphicsSceneDragDropEvent * event)
+{
+    if(event->mimeData()->property("acceptable").toBool())
+    {
+        event->acceptProposedAction();
+    }
+    else
+    {
+        event->setAccepted(false);
+    }
+}
 
 void Canvas::keyPressEvent(QKeyEvent *event)
 {
@@ -145,64 +214,32 @@ void Canvas::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsScene::mouseReleaseEvent(event);
 }
 
-void Canvas::dropEvent(QGraphicsSceneDragDropEvent * event)
+void Canvas::drawBackground(QPainter *painter, const QRectF &rect)
 {
-    if(event->mimeData()->property("acceptable").toBool())
-    {
-        int typeId = event->mimeData()->property("typeId").toInt();
-        event->acceptProposedAction();
+    int step = GRID_STEP;
+    painter->setPen(QPen(QColor(200, 200, 255, 125)));
 
-        Component* component = static_cast<Component*>(QMetaType::create(typeId));
-        d->mCanvasManager->addComponent(component, event->scenePos());
+    // draw horizontal grid
+    qreal start = d->round(rect.top(), step);
+    if (start > rect.top()) {
+        start -= step;
     }
-    else
-    {
-        event->setAccepted(false);
+
+    for (qreal y = start - step; y < rect.bottom(); ) {
+        y += step;
+        painter->drawLine(rect.left(), y, rect.right(), y);
+    }
+
+    // now draw vertical grid
+    start = d->round(rect.left(), step);
+    if (start > rect.left()) {
+        start -= step;
+    }
+
+    for (qreal x = start - step; x < rect.right(); ) {
+        x += step;
+        painter->drawLine(x, rect.top(), x, rect.bottom());
     }
 }
 
-void Canvas::dragEnterEvent(QGraphicsSceneDragDropEvent * event)
-{
-
-    if(event->mimeData()->property("acceptable").toBool())
-    {
-        event->acceptProposedAction();
-    }
-    else
-    {
-        event->setAccepted(false);
-    }
-}
-
-void Canvas::dragMoveEvent(QGraphicsSceneDragDropEvent * event)
-{
-    if(event->mimeData()->property("acceptable").toBool())
-    {
-        if(d->mCanvasManager->isDropable(event->scenePos()))
-        {
-            event->acceptProposedAction();
-        }
-        else
-        {
-            event->setAccepted(false);
-        }
-    }
-    else
-    {
-        event->setAccepted(false);
-    }
-}
-
-void Canvas::dragLeaveEvent(QGraphicsSceneDragDropEvent * event)
-{
-    if(event->mimeData()->property("acceptable").toBool())
-    {
-        event->acceptProposedAction();
-    }
-    else
-    {
-        event->setAccepted(false);
-    }
-}
-
-
+} // namespace Logicsim
