@@ -14,6 +14,7 @@ namespace Logicsim
 
 class Gate::Private
 {
+
 public:
     Private()
         : in1(0),
@@ -106,6 +107,7 @@ void Gate::setMaxInput(qint16 mi)
 {
     d->maxInput = mi;
 }
+
 
 qint16 Gate::maxInput()
 {

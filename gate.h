@@ -23,6 +23,7 @@ public:
     QRectF boundingRect() const;
     void updateConnection();
 
+
 protected:
     Gate(Type t);
     Pin * in1();
@@ -40,4 +41,5 @@ private:
 };
 
 }
+
 #endif // GATE_H
