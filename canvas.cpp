@@ -243,4 +243,3 @@ void Canvas::drawBackground(QPainter *painter, const QRectF &rect)
 }
 
 } // namespace Logicsim
-
