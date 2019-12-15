@@ -15,6 +15,9 @@ Arrow::Arrow(DiagramItem *startItem, DiagramItem *endItem, QGraphicsItem *parent
     setPen(QPen(myColor, 2, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
 }
 
+/**
+ * Граница прямоугольников
+ */
 QRectF Arrow::boundingRect() const
 {
     qreal extra = (pen().width() + 20) / 2.0;
@@ -32,13 +35,18 @@ QPainterPath Arrow::shape() const
     return path;
 }
 
+/**
+ * Обновить позицию при перемещении элементов
+ */
 void Arrow::updatePosition()
 {
     QLineF line(mapFromItem(myStartItem, 0, 0), mapFromItem(myEndItem, 0, 0));
     setLine(line);
 }
 
-
+/**
+ * Рисование стрелки
+ */
 void Arrow::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
           QWidget *)
 {
