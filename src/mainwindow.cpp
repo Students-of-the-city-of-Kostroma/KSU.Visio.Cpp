@@ -134,7 +134,7 @@ Canvas* MainWindow::newFile()
                 d->workspaceTab, SLOT(updateComponents()));
     }
     d->tabsCount++;
-    int tabIndex = d->tabWidget->addTab(c->view(), "New Circuit");
+    int tabIndex = d->tabWidget->addTab(c->view(), "Рабочее поле");
     c->setTabIndex(tabIndex);
     d->tabWidget->setCurrentIndex(tabIndex);
     setMainFrameDisabled(false);
@@ -195,9 +195,9 @@ void MainWindow::tabAboutToBeClosed(int index)
     if(c->canvasManager()->isDirty())
     {
         QMessageBox::StandardButton reply;
-        reply = QMessageBox::question(this, "Close Tab",
-                                      "Do you want to save before closing?",
-                                      QMessageBox::Yes|QMessageBox::Cancel|QMessageBox::No);
+        reply = QMessageBox::question(this, "Закрыть программу",
+                                      "Хотите сохранить файл перед выходом?",
+                                      QMessageBox::Yes|QMessageBox::No);
         if (reply == QMessageBox::Yes)
         {
 

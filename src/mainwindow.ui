@@ -35,11 +35,11 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_2">
          <attribute name="title">
-          <string>Components</string>
+          <string>Компоненты</string>
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout">
           <property name="spacing">
@@ -56,7 +56,7 @@
         </widget>
         <widget class="QWidget" name="tab_3">
          <attribute name="title">
-          <string>Workspace</string>
+          <string>Рабочая область</string>
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
@@ -94,17 +94,17 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>Fi&amp;le</string>
+     <string>Файл</string>
     </property>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
-    <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
-     <string>Too&amp;ls</string>
+     <string>Инструменты</string>
     </property>
+    <addaction name="action"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuTools"/>
@@ -131,7 +131,7 @@
      <normaloff>:/icons/new</normaloff>:/icons/new</iconset>
    </property>
    <property name="text">
-    <string>&amp;New</string>
+    <string>Новый</string>
    </property>
   </action>
   <action name="actionOpen">
@@ -140,7 +140,7 @@
      <normaloff>:/icons/open</normaloff>:/icons/open</iconset>
    </property>
    <property name="text">
-    <string>&amp;Open</string>
+    <string>Открыть</string>
    </property>
   </action>
   <action name="actionSave">
@@ -149,7 +149,7 @@
      <normaloff>:/icons/save</normaloff>:/icons/save</iconset>
    </property>
    <property name="text">
-    <string>&amp;Save</string>
+    <string>Сохранить</string>
    </property>
   </action>
   <action name="actionQuit">
@@ -158,7 +158,12 @@
      <normaloff>:/icons/close</normaloff>:/icons/close</iconset>
    </property>
    <property name="text">
-    <string>&amp;Quit</string>
+    <string>Выйти</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>Руководство пользователя</string>
    </property>
   </action>
  </widget>
