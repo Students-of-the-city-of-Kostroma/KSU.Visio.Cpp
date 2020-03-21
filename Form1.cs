@@ -16,8 +16,15 @@ namespace Course_Project
 	{
 		public Form1()
 		{
-
 			InitializeComponent();
+			textBox1.Hide();
+			label2.Hide();
+			picture.Height = 1000;
+			picture.Width = 1000;
+			picture.SizeMode = PictureBoxSizeMode.StretchImage;
+			this.picture.BackgroundImage = global::Course_Project.Properties.Resources.Field1;
+			panel1.Controls.Add(picture);
+			panel1.AutoScroll = true;
 		}
 		/// <summary>
 		///  Для сохранения
@@ -145,7 +152,7 @@ namespace Course_Project
 			label1.Text = "";
 		}
 		/// <summary>
-		/// Метод вызываемый при наведении на компонент, отображает название компонента в Labael
+		/// Метод вызываемый при наведении на компонент, отображает название компонента в Label
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -172,12 +179,20 @@ namespace Course_Project
 		/// </summary>
 		MouseEventArgs Ef2;
 		/// <summary>
+		/// Переменные типа bool, необходимы для единичного размещения компонентов
+		/// </summary>
+		bool flag = true, flag1 = true, flag2 = true, flag3 = true;
+		/// <summary>
 		/// Метод определяющий какой из элементов удерживается
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		//PictureBox picture = new PictureBox();
 		private void pictureBox2_MouseDown(object sender, MouseEventArgs e) 
 		{
+			textBox1.Hide();
+			textBox1.Clear();
+			label2.Hide();
 			if (sender == pictureBox1)
 			{
 				deli = PaiRect;
@@ -188,14 +203,26 @@ namespace Course_Project
 				deli = PaiRhomb;
 				deli2 = null;
 			}
-			if (sender == pictureBox3)
+			if (sender == pictureBox3 && flag)
 			{
 				deli = PaiCircle;
 				deli2 = null;
+				flag = false;
 			}
-			if (sender == pictureBox4)
+			else if (!flag && sender == pictureBox3)
+			{
+				deli = null;
+				deli2 = null;
+			}
+			if (sender == pictureBox4 && flag1)
 			{
 				deli = PaiCircleS;
+				deli2 = null;
+				flag1 = false;
+			}
+			else if(!flag1 && sender == pictureBox4)
+			{
+				deli = null;
 				deli2 = null;
 			}
 			if (sender == pictureBox5)
@@ -210,6 +237,8 @@ namespace Course_Project
 			}
 			if (sender == pictureBox7)
 			{
+				textBox1.Show();
+				label2.Show();
 				deli = TextBox1;
 				deli2 = null;
 			}
@@ -279,14 +308,17 @@ namespace Course_Project
 			sev.Zav.Add(e2);
 		}
 		/// <summary>
-		/// Метод для написания текст
+		/// Метод для написания текста
 		/// </summary>
 		/// <param name="e"></param>
 		private void TextBox1(MouseEventArgs e)
 		{
-			TextBox1 textBoxx1 = new TextBox1(picture);
-			textBoxx1.Ris(e, textBox1, ref SaveText);
-			sev.Text.Add(e);
+			if (textBox1.Text != "")
+			{
+				TextBox1 textBoxx1 = new TextBox1(picture);
+				textBoxx1.Ris(e, textBox1, ref SaveText);
+				sev.Text.Add(e);
+			}
 		}
 		/// <summary>
 		/// Рисование компонентов в виде фигур после клика мышью по форме
@@ -295,7 +327,26 @@ namespace Course_Project
 		/// <param name="e"></param>
 		private void picture_MouseClick(object sender, MouseEventArgs e)
 		{
-			if (deli != null)
+			if (deli != null && (flag2 || flag3))
+			{
+				if(flag == false && flag2)
+				{
+					deli(e);
+					flag2 = false;
+					deli = null;
+				}
+				if(flag1 == false && flag3)
+				{
+					deli(e);
+					flag3 = false;
+					deli = null;
+				}
+			}
+			if(deli != null && (!flag2 || !flag3))
+			{
+				deli(e);
+			}
+			if(deli != null && flag && flag1 && flag2 && flag3)
 			{
 				deli(e);
 			}
@@ -321,6 +372,8 @@ namespace Course_Project
 					if (e.X < sev.NProtsessa[i].X + 3 && e.X > sev.NProtsessa[i].X - 3 && e.Y < sev.NProtsessa[i].Y + 3 && e.Y > sev.NProtsessa[i].Y - 3)
 					{
 						sev.NProtsessa.RemoveAt(i);
+						flag = true;
+						flag2 = true;
 					}
 				}
 				for (int i = 0; i < sev.OProtsessa.Count(); i++)
@@ -328,6 +381,8 @@ namespace Course_Project
 					if (e.X < sev.OProtsessa[i].X + 3 && e.X > sev.OProtsessa[i].X - 3 && e.Y < sev.OProtsessa[i].Y + 3 && e.Y > sev.OProtsessa[i].Y - 3)
 					{
 						sev.OProtsessa.RemoveAt(i);
+						flag1 = true;
+						flag3 = true;
 					}
 				}
 				for (int i = 0; i < sev.SDeystviy.Count(); i++)
@@ -408,7 +463,6 @@ namespace Course_Project
 				picture_Paint();
 				Points();
 			}
-
 		}
 		/// <summary>
 		/// Метод перерисовки созданных элементов
@@ -630,7 +684,7 @@ namespace Course_Project
 			Points();
 		}
 		/// <summary>
-		/// Метод вызваемый после нажатия на кнопку "Создать новый"
+		/// Метод вызываемый после нажатия на кнопку "Создать новый"
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -645,6 +699,10 @@ namespace Course_Project
 			sev.Zav.Clear();
 			picture.Refresh();
 			SaveText.Clear();
+			flag = true;
+			flag1 = true;
+			flag2 = true;
+			flag3 = true;
 		}
 		/// <summary>
 		/// Метод вызываемый после нажатия на кнопку "Настройки"
@@ -661,7 +719,7 @@ namespace Course_Project
 		/// <param name="e"></param>
 		private void вариант1ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			this.picture.BackgroundImage = global::Course_Project.Properties.Resources.Field1;
+			this.picture.BackgroundImage = global::Course_Project.Properties.Resources.Field;
 			picture.Refresh();
 			picture_Paint();
 		}
@@ -672,7 +730,7 @@ namespace Course_Project
 		/// <param name="e"></param>
 		private void стандартToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			this.picture.BackgroundImage = global::Course_Project.Properties.Resources.Field;
+			this.picture.BackgroundImage = global::Course_Project.Properties.Resources.Field1;
 			picture.Refresh();
 			picture_Paint();
 		}
